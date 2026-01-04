@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Upload, Play, Pause, Plus } from 'lucide-react';
+import { Upload, Play, Pause, Plus, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SpriteSheetGuide from './SpriteSheetGuide';
 
 interface UploadedImage {
@@ -10,6 +11,7 @@ interface UploadedImage {
 }
 
 export default function SpritePreviewer() {
+    const { t, i18n } = useTranslation();
     const [image, setImage] = useState<string | null>(null);
     const [duration, setDuration] = useState(2);
     const [flipHorizontal, setFlipHorizontal] = useState(false);
@@ -159,13 +161,25 @@ export default function SpritePreviewer() {
         fileInputRef.current?.click();
     };
 
+    const toggleLanguage = () => {
+        const newLang = i18n.language === 'zh-TW' ? 'en' : 'zh-TW';
+        i18n.changeLanguage(newLang);
+    };
+
     return (
         <div className="min-h-screen bg-[#F8F9F9] flex flex-col font-sans text-[#1F2937]">
             <section className="min-h-screen flex flex-col p-6 lg:p-12 max-w-[1600px] mx-auto w-full">
-                <header className="mb-6 flex-none flex justify-center">
+                <header className="mb-6 flex-none flex justify-center relative items-center">
                     <h1 className="text-3xl font-bold text-[#243179] tracking-tight text-center">
-                        Sprite Sheet (Sequence Sheet) 動畫預覽器
+                        {t('app.title')}
                     </h1>
+                    <button
+                        onClick={toggleLanguage}
+                        className="absolute right-0 flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-gray-100 text-sm font-medium text-gray-600 hover:text-[#3B82F6] hover:border-blue-100 transition-all active:scale-95"
+                    >
+                        <Globe size={18} />
+                        {i18n.language === 'en' ? '繁體中文' : 'English'}
+                    </button>
                 </header>
 
                 <div className="flex-1 grid grid-cols-1 lg:grid-cols-10 gap-6">
@@ -191,9 +205,9 @@ export default function SpritePreviewer() {
                                         </div>
                                         <div className="text-center">
                                             <span className="block text-base font-semibold text-gray-700 group-hover:text-[#3B82F6] transition-colors">
-                                                點擊上傳或拖曳 Sprite Sheet (Sequence Sheet)
+                                                {t('app.upload_prompt')}
                                             </span>
-                                            <span className="text-sm text-gray-400 mt-1">支援 PNG, JPG</span>
+                                            <span className="text-sm text-gray-400 mt-1">{t('app.upload_subtext')}</span>
                                         </div>
                                     </div>
                                     <input
@@ -209,9 +223,9 @@ export default function SpritePreviewer() {
                                 {/* Preview Section */}
                                 <div className="p-6 flex flex-col gap-4">
                                     <div className="flex justify-between items-center px-1">
-                                        <h2 className="text-xl font-bold text-[#243179]">預覽</h2>
+                                        <h2 className="text-xl font-bold text-[#243179]">{t('app.preview')}</h2>
                                         <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-mono text-gray-600">
-                                            FRAME: {currentFrame + 1} / {totalFrames}
+                                            {t('app.frame_label')} {currentFrame + 1} / {totalFrames}
                                         </div>
                                     </div>
 
@@ -249,10 +263,10 @@ export default function SpritePreviewer() {
                                                         <span className="text-gray-300">|</span>
                                                     </>
                                                 )}
-                                                <span className="font-medium">原始尺寸:</span>
+                                                <span className="font-medium">{t('app.original_size')}</span>
                                                 <span>{imageDimensions.width}x{imageDimensions.height}</span>
                                                 <span className="text-gray-300">|</span>
-                                                <span className="font-medium">單格:</span>
+                                                <span className="font-medium">{t('app.single_frame')}</span>
                                                 <span>{Math.round(imageDimensions.width / columns)}x{Math.round(imageDimensions.height / rows)}</span>
                                             </div>
                                         ) : '-'}
@@ -279,7 +293,7 @@ export default function SpritePreviewer() {
                                             title="Upload new image"
                                         >
                                             <Plus size={24} />
-                                            <span className="text-xs font-bold">Upload</span>
+                                            <span className="text-xs font-bold">{t('app.upload_button')}</span>
                                         </button>
 
                                         {/* History Items */}
@@ -318,14 +332,14 @@ export default function SpritePreviewer() {
                     <div className={`col-span-1 lg:col-span-3 flex flex-col h-full ${!image ? 'opacity-50 pointer-events-none grayscale-[0.8] blur-[1px] transition-all duration-500' : 'transition-all duration-500'}`}>
                         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col overflow-hidden sticky top-6">
                             <div className="p-6 border-b border-gray-100 flex-none bg-gray-50/30">
-                                <h2 className="text-lg font-bold text-[#243179]">參數設定</h2>
+                                <h2 className="text-lg font-bold text-[#243179]">{t('app.settings')}</h2>
                             </div>
 
                             <div className="p-6 space-y-8">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                                            列數 (Columns)
+                                            {t('app.columns')}
                                         </label>
                                         <input
                                             type="number"
@@ -339,7 +353,7 @@ export default function SpritePreviewer() {
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                                            行數 (Rows)
+                                            {t('app.rows')}
                                         </label>
                                         <input
                                             type="number"
@@ -355,11 +369,11 @@ export default function SpritePreviewer() {
 
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-end">
-                                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">動畫週期</span>
+                                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t('app.animation_duration')}</span>
                                         <div className="text-right">
                                             <div className="text-3xl font-bold text-[#243179] font-mono leading-none tracking-tight">
                                                 {duration}
-                                                <span className="text-sm text-gray-400 ml-1 font-sans font-normal">秒</span>
+                                                <span className="text-sm text-gray-400 ml-1 font-sans font-normal">{t('app.seconds')}</span>
                                             </div>
                                             <div className="text-xs text-[#3B82F6] font-medium mt-1 bg-blue-50 px-2 py-0.5 rounded-md inline-block">
                                                 1 Frame ≈ {Math.round((duration * 1000) / totalFrames)} ms
@@ -386,7 +400,7 @@ export default function SpritePreviewer() {
 
                                 <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors">
                                     <label className="flex items-center justify-between cursor-pointer group">
-                                        <span className="text-sm font-bold text-gray-700 group-hover:text-[#243179] transition-colors">水平翻轉預覽</span>
+                                        <span className="text-sm font-bold text-gray-700 group-hover:text-[#243179] transition-colors">{t('app.flip_horizontal')}</span>
                                         <div className="relative">
                                             <input
                                                 type="checkbox"
@@ -413,7 +427,7 @@ export default function SpritePreviewer() {
                                         } disabled:bg-gray-300 disabled:shadow-none disabled:transform-none disabled:translate-y-0 disabled:cursor-not-allowed`}
                                 >
                                     {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" />}
-                                    {isPlaying ? '暫停播放' : '開始播放'}
+                                    {isPlaying ? t('app.pause') : t('app.play')}
                                 </button>
                             </div>
                         </div>
@@ -425,7 +439,7 @@ export default function SpritePreviewer() {
 
             <footer className="w-full py-6 text-center text-sm text-gray-400 bg-white border-t border-gray-100">
                 <p>
-                    Made by{' '}
+                    {t('footer.made_by')}{' '}
                     <a
                         href="https://goldentseng.com/about/"
                         target="_blank"
