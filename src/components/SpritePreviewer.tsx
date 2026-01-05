@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Upload, Play, Pause, Plus, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import SpriteSheetGuide from './SpriteSheetGuide';
 
 interface UploadedImage {
     id: string;
@@ -175,7 +174,7 @@ export default function SpritePreviewer() {
                     </h1>
                     <button
                         onClick={toggleLanguage}
-                        className="absolute right-0 flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-gray-100 text-sm font-medium text-gray-600 hover:text-[#3B82F6] hover:border-blue-100 transition-all active:scale-95"
+                        className="absolute right-0 flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-gray-100 text-sm font-medium text-gray-600 hover:text-[#1957BC] hover:border-blue-100 transition-all active:scale-95"
                     >
                         <Globe size={18} />
                         {i18n.language === 'en' ? '繁體中文' : 'English'}
@@ -198,16 +197,16 @@ export default function SpritePreviewer() {
                         {/* If no history, show large upload area. Else show Preview + Content List */}
                         {history.length === 0 ? (
                             <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-500 ease-spring min-h-[400px]">
-                                <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-gray-200 rounded-xl cursor-pointer hover:border-[#3B82F6] hover:bg-blue-50/50 transition-all group">
+                                <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-gray-200 rounded-xl cursor-pointer hover:border-[#1957BC] hover:bg-blue-50/50 transition-all group">
                                     <div className="flex flex-col items-center gap-4 p-4">
-                                        <div className="p-4 rounded-full bg-gray-50 group-hover:bg-[#3B82F6]/10 transition-colors scale-125">
-                                            <Upload className="text-gray-400 group-hover:text-[#3B82F6] transition-colors" size={40} />
+                                        <div className="p-4 rounded-full bg-gray-50 group-hover:bg-[#1957BC]/10 transition-colors scale-125">
+                                            <Upload className="text-gray-600 group-hover:text-[#1957BC] transition-colors" size={40} />
                                         </div>
                                         <div className="text-center">
-                                            <span className="block text-base font-semibold text-gray-700 group-hover:text-[#3B82F6] transition-colors">
+                                            <span className="block text-base font-semibold text-gray-700 group-hover:text-[#1957BC] transition-colors">
                                                 {t('app.upload_prompt')}
                                             </span>
-                                            <span className="text-sm text-gray-400 mt-1">{t('app.upload_subtext')}</span>
+                                            <span className="text-sm text-gray-600 mt-1">{t('app.upload_subtext')}</span>
                                         </div>
                                     </div>
                                     <input
@@ -289,7 +288,7 @@ export default function SpritePreviewer() {
                                         {/* Upload Button in List */}
                                         <button
                                             onClick={triggerUpload}
-                                            className="h-full aspect-square flex flex-col items-center justify-center gap-1 bg-white border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:bg-blue-50/50 transition-all flex-none"
+                                            className="h-full aspect-square flex flex-col items-center justify-center gap-1 bg-white border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-[#1957BC] hover:text-[#1957BC] hover:bg-blue-50/50 transition-all flex-none"
                                             title="Upload new image"
                                         >
                                             <Plus size={24} />
@@ -302,7 +301,7 @@ export default function SpritePreviewer() {
                                                 key={item.id}
                                                 onClick={() => handleSelectImage(item)}
                                                 className={`h-full aspect-[4/3] relative rounded-xl overflow-hidden cursor-pointer border-2 transition-all group flex-none bg-white ${activeImageId === item.id
-                                                    ? 'border-[#3B82F6] ring-2 ring-[#3B82F6]/20'
+                                                    ? 'border-[#1957BC] ring-2 ring-[#1957BC]/20'
                                                     : 'border-transparent hover:border-gray-200'
                                                     }`}
                                             >
@@ -348,7 +347,7 @@ export default function SpritePreviewer() {
                                             value={columns}
                                             onChange={(e) => setColumns(Math.max(1, parseInt(e.target.value) || 1))}
                                             disabled={!image}
-                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent focus:bg-white transition-all text-gray-800 font-bold text-lg text-center"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1957BC] focus:border-transparent focus:bg-white transition-all text-gray-800 font-bold text-lg text-center"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -362,7 +361,7 @@ export default function SpritePreviewer() {
                                             value={rows}
                                             onChange={(e) => setRows(Math.max(1, parseInt(e.target.value) || 1))}
                                             disabled={!image}
-                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent focus:bg-white transition-all text-gray-800 font-bold text-lg text-center"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1957BC] focus:border-transparent focus:bg-white transition-all text-gray-800 font-bold text-lg text-center"
                                         />
                                     </div>
                                 </div>
@@ -373,9 +372,9 @@ export default function SpritePreviewer() {
                                         <div className="text-right">
                                             <div className="text-3xl font-bold text-[#243179] font-mono leading-none tracking-tight">
                                                 {duration}
-                                                <span className="text-sm text-gray-400 ml-1 font-sans font-normal">{t('app.seconds')}</span>
+                                                <span className="text-sm text-gray-600 ml-1 font-sans font-normal">{t('app.seconds')}</span>
                                             </div>
-                                            <div className="text-xs text-[#3B82F6] font-medium mt-1 bg-blue-50 px-2 py-0.5 rounded-md inline-block">
+                                            <div className="text-xs text-[#1957BC] font-medium mt-1 bg-blue-50 px-2 py-0.5 rounded-md inline-block">
                                                 1 Frame ≈ {Math.round((duration * 1000) / totalFrames)} ms
                                             </div>
                                         </div>
@@ -389,9 +388,9 @@ export default function SpritePreviewer() {
                                             value={duration}
                                             onChange={(e) => setDuration(parseFloat(e.target.value))}
                                             disabled={!image}
-                                            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#243179] hover:accent-[#3B82F6] transition-colors"
+                                            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#243179] hover:accent-[#1957BC] transition-colors"
                                         />
-                                        <div className="flex justify-between text-xs text-gray-400 font-medium mt-2">
+                                        <div className="flex justify-between text-xs text-gray-600 font-medium mt-2">
                                             <span>0.1 s</span>
                                             <span>5.0 s</span>
                                         </div>
@@ -409,7 +408,7 @@ export default function SpritePreviewer() {
                                                 disabled={!image}
                                                 className="hidden"
                                             />
-                                            <div className={`w-12 h-7 flex items-center rounded-full p-1 duration-300 ease-in-out ${flipHorizontal ? 'bg-[#3B82F6]' : 'bg-gray-300'}`}>
+                                            <div className={`w-12 h-7 flex items-center rounded-full p-1 duration-300 ease-in-out ${flipHorizontal ? 'bg-[#1957BC]' : 'bg-gray-300'}`}>
                                                 <div className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${flipHorizontal ? 'translate-x-5' : ''}`}></div>
                                             </div>
                                         </div>
@@ -434,22 +433,6 @@ export default function SpritePreviewer() {
                     </div>
                 </div>
             </section>
-
-            <SpriteSheetGuide />
-
-            <footer className="w-full py-6 text-center text-sm text-gray-400 bg-white border-t border-gray-100">
-                <p>
-                    {t('footer.made_by')}{' '}
-                    <a
-                        href="https://goldentseng.com/about/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[#3B82F6] hover:text-[#243179] transition-colors underline decoration-blue-200 hover:decoration-[#243179] underline-offset-2"
-                    >
-                        Golden
-                    </a>
-                </p>
-            </footer>
         </div>
     );
 }

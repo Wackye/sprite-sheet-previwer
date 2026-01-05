@@ -8,7 +8,7 @@ const SpriteSheetGuide = () => {
         <section className="bg-white py-24 px-6 lg:px-12 border-t border-gray-100">
             <div className="max-w-[1600px] mx-auto">
                 <div className="text-center mb-16">
-                    <span className="text-[#3B82F6] font-bold tracking-wider uppercase text-sm mb-2 block">{t('guide.premium_guide')}</span>
+                    <span className="text-[#1957BC] font-bold tracking-wider uppercase text-sm mb-2 block">{t('guide.premium_guide')}</span>
                     <h2 className="text-2xl lg:text-3xl font-extrabold text-[#243179] mb-6 tracking-tight">
                         {t('guide.title')}
                     </h2>
@@ -22,13 +22,13 @@ const SpriteSheetGuide = () => {
                     <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden group h-full">
                         <div className="p-8 border-b border-gray-100 bg-gray-50/50">
                             <div className="flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#3B82F6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
-                                    <Layers className="text-[#3B82F6]" size={28} />
+                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#1957BC] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <Layers className="text-[#1957BC]" size={28} />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-[#243179]">{t('guide.section_1_title')}</h3>
                                     <p className="text-gray-500 text-sm mt-1">
-                                        <span className="font-semibold text-[#3B82F6]">{t('guide.section_1_subtitle')}</span>
+                                        <span className="font-semibold text-[#1957BC]">{t('guide.section_1_subtitle')}</span>
                                     </p>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@ const SpriteSheetGuide = () => {
                                 { title: t('guide.fx_title'), frames: t('guide.fx_frames'), desc: t('guide.fx_desc'), icon: <Layers size={20} /> },
                             ].map((item, idx) => (
                                 <div key={idx} className="p-7 hover:bg-blue-50/30 transition-colors group/item flex gap-5 items-start">
-                                    <div className="mt-1 text-gray-400 group-hover/item:text-[#3B82F6] transition-colors shrink-0">
+                                    <div className="mt-1 text-gray-600 group-hover/item:text-[#1957BC] transition-colors shrink-0">
                                         {item.icon}
                                     </div>
                                     <div className="flex-1">
@@ -64,8 +64,8 @@ const SpriteSheetGuide = () => {
                     <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden group h-full">
                         <div className="p-8 border-b border-gray-100 bg-gray-50/50">
                             <div className="flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#3B82F6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
-                                    <Clock className="text-[#3B82F6]" size={28} />
+                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#1957BC] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <Clock className="text-[#1957BC]" size={28} />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-[#243179]">{t('guide.section_2_title')}</h3>
@@ -80,7 +80,7 @@ const SpriteSheetGuide = () => {
                             {[
                                 { fps: "8 ~ 12 FPS", type: t('guide.fps_retro_type'), desc: t('guide.fps_retro_desc'), color: "text-amber-500", bg: "bg-amber-50" },
                                 { fps: "24 FPS", type: t('guide.fps_cinema_type'), desc: t('guide.fps_cinema_desc'), color: "text-emerald-600", bg: "bg-emerald-50" },
-                                { fps: "30 FPS", type: t('guide.fps_game_type'), desc: t('guide.fps_game_desc'), color: "text-[#3B82F6]", bg: "bg-blue-50" },
+                                { fps: "30 FPS", type: t('guide.fps_game_type'), desc: t('guide.fps_game_desc'), color: "text-[#1957BC]", bg: "bg-blue-50" },
                             ].map((item, idx) => (
                                 <div key={idx} className="p-7 hover:bg-gray-50 transition-colors group/item relative overflow-hidden">
                                     <div className="flex items-baseline justify-between mb-3">
@@ -102,8 +102,8 @@ const SpriteSheetGuide = () => {
                     <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden group h-full">
                         <div className="p-8 border-b border-gray-100 bg-gray-50/50">
                             <div className="flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#3B82F6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
-                                    <ImageIcon className="text-[#3B82F6]" size={28} />
+                                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#1957BC] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <ImageIcon className="text-[#1957BC]" size={28} />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-[#243179]">{t('guide.section_3_title')}</h3>
@@ -121,8 +121,8 @@ const SpriteSheetGuide = () => {
                                 <div key={idx} className="p-7 hover:bg-blue-50/30 transition-colors group/item relative overflow-hidden">
                                     <div className="absolute top-0 right-0 w-14 h-14 bg-gradient-to-bl from-blue-100/50 to-transparent rounded-bl-full transform translate-x-6 -translate-y-6 group-hover/item:translate-x-2 group-hover/item:-translate-y-2 transition-transform duration-500"></div>
                                     <div className="flex justify-between items-baseline mb-2">
-                                        <h4 className="text-base font-semibold text-[#343435] group-hover/item:text-[#3B82F6] transition-colors">{item.title}</h4>
-                                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest group-hover/item:text-blue-300 transition-colors">{item.subtitle}</span>
+                                        <h4 className="text-base font-semibold text-[#343435] group-hover/item:text-[#1957BC] transition-colors">{item.title}</h4>
+                                        <span className="text-xs font-bold text-gray-600 uppercase tracking-widest group-hover/item:text-blue-300 transition-colors">{item.subtitle}</span>
                                     </div>
                                     <p className="text-sm text-gray-600 leading-relaxed pt-1">
                                         {item.desc}

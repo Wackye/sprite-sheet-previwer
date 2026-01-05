@@ -1,8 +1,14 @@
 import SpritePreviewer from './components/SpritePreviewer';
+import SpriteSheetGuide from './components/SpriteSheetGuide';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <SpritePreviewer />
+    <div>
+      <SpritePreviewer />
+      <SpriteSheetGuide />
+      <Footer />
+    </div>
   );
 }
 
